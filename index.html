@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Indranil Ghosh | Fraud Detection Specialist</title>
+<style>
+        :root {
+            --primary-color: #00f3ff;
+            --secondary-color: #7b2ff7;
+            --accent-color: #ff006e;
+            --bg-dark: #0a0e27;
+            --bg-darker: #050816;
+            --text-light: #e0e0e0;
+            --card-bg: rgba(20, 25, 60, 0.7);
+            --glass-bg: rgba(255, 255, 255, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-darker);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Animated Background Particles */
+        #particles-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.4;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 243, 255, 0.1);
+        }
+
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.5em;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 30px;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        nav .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 20px 50px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5em, 8vw, 5em);
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 50%, var(--accent-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .typing-text {
+            font-size: clamp(1.2em, 3vw, 1.8em);
+            color: var(--text-light);
+            min-height: 60px;
+            margin-bottom: 30px;
+        }
+
+        .typing-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1.2em;
+            background: var(--primary-color);
+            animation: blink 0.7s infinite;
+            margin-left: 5px;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .cta-buttons {
+            margin-top: 40px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: #000;
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.5);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 50px rgba(0, 243, 255, 0.8);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: #000;
+        }
+
+        /* Stats Section with 3D Cards */
+        .stats-section {
+            padding: 100px 20px;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(2em, 5vw, 3.5em);
+            margin-bottom: 70px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stats-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .stat-card:hover::before {
+            left: 100%;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-15px) rotateX(5deg);
+            border-color: var(--primary-color);
+            box-shadow: 0 20px 60px rgba(0, 243, 255, 0.3);
+        }
+
+        .stat-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .stat-number {
+            font-size: 3em;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1em;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Experience Timeline */
+        .experience-section {
+            padding: 100px 20px;
+            background: linear-gradient(180deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+        }
+
+        .timeline {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .timeline-item {
+            margin-bottom: 80px;
+            position: relative;
+            width: 50%;
+            padding: 0 40px;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            text-align: left;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            top: 30px;
+            box-shadow: 0 0 20px var(--primary-color);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -10px;
+        }
+
+        .timeline-content {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            transition: all 0.3s;
+        }
+
+        .timeline-content:hover {
+            border-color: var(--primary-color);
+            transform: scale(1.02);
+            box-shadow: 0 10px 40px rgba(0, 243, 255, 0.2);
+        }
+
+        .timeline-content h3 {
+            font-size: 1.5em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .timeline-content .company {
+            font-size: 1.2em;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .timeline-content .duration {
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .timeline-content ul {
+            list-style: none;
+            text-align: left;
+        }
+
+        .timeline-content li {
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 10px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .timeline-content li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-size: 1.5em;
+            line-height: 1;
+        }
+
+        /* Skills Matrix */
+        .skills-section {
+            padding: 100px 20px;
+        }
+
+        .skills-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .skill-category {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.3s;
+        }
+
+        .skill-category:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 40px rgba(123, 47, 247, 0.3);
+        }
+
+        .skill-category h3 {
+            font-size: 1.8em;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .skill-item {
+            margin-bottom: 25px;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 10px;
+            animation: fillBar 1.5s ease-out forwards;
+            transform-origin: left;
+        }
+
+        @keyframes fillBar {
+            from { transform: scaleX(0); }
+            to { transform: scaleX(1); }
+        }
+
+        /* Interactive Data Visualization */
+        .visualization-section {
+            padding: 100px 20px;
+            background: linear-gradient(180deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+        }
+
+        .viz-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            border-radius: 20px;
+            padding: 50px;
+        }
+
+        .chart-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .chart-bar {
+            text-align: center;
+        }
+
+        .bar-container {
+            height: 250px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+
+        .bar {
+            width: 60px;
+            background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
+            border-radius: 10px 10px 0 0;
+            animation: growBar 1.5s ease-out forwards;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.5);
+        }
+
+        @keyframes growBar {
+            from { height: 0; }
+        }
+
+        .bar-label {
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .contact-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 40px rgba(0, 243, 255, 0.3);
+        }
+
+        .contact-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .contact-card a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-card a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 20px;
+            text-align: center;
+            background: var(--bg-darker);
+            border-top: 1px solid rgba(0, 243, 255, 0.1);
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav .nav-links {
+                display: none;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                left: 0 !important;
+                padding-left: 60px !important;
+                text-align: left !important;
+            }
+
+            .timeline-dot {
+                left: 10px !important;
+            }
+
+            .stats-grid, .skills-container, .chart-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Animated Background Canvas -->
+<canvas id="particles-canvas"></canvas>
+<div class="content-wrapper">
+<!-- Navigation -->
+<nav>
+<div class="container">
+<div class="logo">IG</div>
+<div class="nav-links">
+<a href="#about">About</a>
+<a href="#experience">Experience</a>
+<a href="#skills">Skills</a>
+<a href="#contact">Contact</a>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="hero">
+<div class="hero-content">
+<h1>INDRANIL GHOSH</h1>
+<div class="typing-text" id="typing-text">
+<span id="typed-content"></span><span class="typing-cursor"></span>
+</div>
+<p style="font-size: 1.2em; color: rgba(255,255,255,0.7); max-width: 700px; margin: 0 auto;">
+                    Elite fraud detection specialist with 98%+ accuracy rate • $5M+ in prevented fraudulent transactions • 100+ analysts trained
+                </p>
+<div class="cta-buttons">
+<a class="btn btn-primary" href="#contact">Get In Touch</a>
+<a class="btn btn-secondary" href="https://linkedin.com/in/indranil-ghosh-a15993a3" target="_blank">View LinkedIn</a>
+</div>
+</div>
+</section>
+<!-- Stats Section -->
+<section class="stats-section" id="about">
+<h2 class="section-title">Impact at Scale</h2>
+<div class="stats-grid fade-in">
+<div class="stat-card">
+<div class="stat-icon">🎯</div>
+<div class="stat-number">98-99%</div>
+<div class="stat-label">Fraud Detection Accuracy</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon">💰</div>
+<div class="stat-number">$5M+</div>
+<div class="stat-label">Fraudulent Transactions Prevented</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon">🔒</div>
+<div class="stat-number">500M+</div>
+<div class="stat-label">Marketplace Listings Monitored</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon">👥</div>
+<div class="stat-number">100+</div>
+<div class="stat-label">Analysts Successfully Trained</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon">📉</div>
+<div class="stat-number">65%</div>
+<div class="stat-label">Fraud Reduction Achieved</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon">⚡</div>
+<div class="stat-number">30%</div>
+<div class="stat-label">Faster Case Resolution</div>
+</div>
+</div>
+</section>
+<!-- Experience Timeline -->
+<section class="experience-section" id="experience">
+<h2 class="section-title">Professional Journey</h2>
+<div class="timeline">
+<div class="timeline-item fade-in">
+<div class="timeline-dot"></div>
+<div class="timeline-content">
+<h3>Seller Lifecycle Fraud &amp; Risk Associate</h3>
+<div class="company">Walmart</div>
+<div class="duration">Jul 2025 - Present | Remote</div>
+<ul>
+<li>Monitor 500M+ marketplace listings with 98.6% accuracy in identifying counterfeit and credential fraud</li>
+<li>Reduced seller onboarding fraud by 65% through advanced detection algorithms</li>
+<li>Mentored 8 analysts while preventing $5M+ in fraudulent transactions</li>
+</ul>
+</div>
+</div>
+<div class="timeline-item fade-in">
+<div class="timeline-dot"></div>
+<div class="timeline-content">
+<h3>Trainer - Fraud Analysis &amp; Prevention</h3>
+<div class="company">TTEC</div>
+<div class="duration">Jan 2024 - Jul 2025 | Hybrid</div>
+<ul>
+<li>Led comprehensive fraud prevention training for 100+ analysts achieving 97%+ certification rates</li>
+<li>Designed innovative KYC/AML curriculum from ground up</li>
+<li>Developed 100+ case study playbooks for organizational knowledge management</li>
+<li>Improved trainee capability metrics by 45% through interactive teaching methods</li>
+</ul>
+</div>
+</div>
+<div class="timeline-item fade-in">
+<div class="timeline-dot"></div>
+<div class="timeline-content">
+<h3>Fraud Analyst</h3>
+<div class="company">TTEC</div>
+<div class="duration">Jan 2022 - Dec 2023 | Remote</div>
+<ul>
+<li>Analyzed 1,200+ monthly fraud cases maintaining 98% accuracy rate</li>
+<li>Prevented $5M+ in fraudulent transactions; recovered $2.3M through law enforcement collaboration</li>
+<li>Specialized in ATO, refund abuse, chargeback fraud, and inventory manipulation detection</li>
+<li>Reduced case resolution time by 30% through process optimization</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Skills Section -->
+<section class="skills-section" id="skills">
+<h2 class="section-title">Technical Arsenal</h2>
+<div class="skills-container">
+<div class="skill-category fade-in">
+<h3>Fraud Prevention</h3>
+<div class="skill-item">
+<div class="skill-name"><span>KYC/AML Compliance</span><span>99%</span></div>
+<div class="skill-bar"><div class="skill-progress" style="width: 99%"></div></div>
+</div>
+<div class="skill-item">
+<div class="skill-name"><span>Transaction Monitoring</span><span>98%</span></div>
+<div class="skill-bar"><div class="skill-progress" style="width: 98%"></div></div>
+</div>
+<div class="skill-item">
+<div class="skill-name"><span>Risk Assessment</span><span>97%</span></div>
+<div class="skill-bar"><div class="skill-progress" style="width: 97%"></div></div>
+</div>
+<div class="skill-item">
+<div class="skill-name"><span>Seller Fraud Detection</span><span>98%</span></div>
+<div class="skill-bar"><div class="skill-progress" style="width: 98%"></div></div>
+</div>
+</div>
+<div class="skill-category fade-in">
+<h3>Technical Tools</h3>
+<div class="skill-item">
+<div class="skill-name"><span>Salesforce</span><span>95%</span></div>
+<div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div>
+</div>
+<div class="skill-item">
+<div class="skill-name"><span>Tableau</span><span>90%</span></div>
+<div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+</div>
+<div class="skill-item">
+<div class="skill-name"><span>Data Analysis</span><span>93%</span></div>
+<div class="skill-bar"><div class="skill-progress" style="width: 93%"></div></div>
+</div>
+<div class="skill-item">
+<div class="skill-name"><span>AI Tools &amp; Automation</span><span>88%</span></div>
+<div class="skill-bar"><div class="skill-progress" style="width: 88%"></div></div>
+</div>
+</div>
+<div class="skill-category fade-in">
+<h3>Leadership</h3>
+<div class="skill-item">
+<div class="skill-name"><span>Team Training &amp; Development</span><span>97%</span></div>
+<div class="skill-bar"><div class="skill-progress" style="width: 97%"></div></div>
+</div>
+<div class="skill-item">
+<div class="skill-name"><span>Curriculum Design</span><span>95%</span></div>
+<div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div>
+</div>
+<div class="skill-item">
+<div class="skill-name"><span>Investigative Research</span><span>96%</span></div>
+<div class="skill-bar"><div class="skill-progress" style="width: 96%"></div></div>
+</div>
+<div class="skill-item">
+<div class="skill-name"><span>Strategic Planning</span><span>92%</span></div>
+<div class="skill-bar"><div class="skill-progress" style="width: 92%"></div></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Data Visualization -->
+<section class="visualization-section">
+<h2 class="section-title">Performance Metrics</h2>
+<div class="viz-container fade-in">
+<h3 style="text-align: center; color: var(--primary-color); margin-bottom: 20px;">Year-over-Year Impact Analysis</h3>
+<div class="chart-wrapper">
+<div class="chart-bar">
+<div class="bar-container">
+<div class="bar" style="height: 200px;"></div>
+</div>
+<div class="bar-label">2022<br/>Started as Analyst</div>
+</div>
+<div class="chart-bar">
+<div class="bar-container">
+<div class="bar" style="height: 240px;"></div>
+</div>
+<div class="bar-label">2023<br/>98% Accuracy Achieved</div>
+</div>
+<div class="chart-bar">
+<div class="bar-container">
+<div class="bar" style="height: 220px;"></div>
+</div>
+<div class="bar-label">2024<br/>Promoted to Trainer</div>
+</div>
+<div class="chart-bar">
+<div class="bar-container">
+<div class="bar" style="height: 250px;"></div>
+</div>
+<div class="bar-label">2025
+Joined Walmart – Seller Lifecycle Fraud &amp; Risk Team</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="contact-section" id="contact">
+<h2 class="section-title">Let's Connect</h2>
+<div class="contact-content fade-in">
+<p style="font-size: 1.3em; margin-bottom: 30px; color: rgba(255,255,255,0.7);">
+                    Ready to discuss fraud prevention strategies or exploring new opportunities in risk management?
+                </p>
+<div class="contact-grid">
+<div class="contact-card">
+<div class="contact-icon">📧</div>
+<a href="mailto:indranilghosh30may@gmail.com">indranilghosh30may@gmail.com</a>
+</div>
+<div class="contact-card">
+<div class="contact-icon">📱</div>
+<a href="tel:+919933395207">+91 9933395207</a>
+</div>
+<div class="contact-card">
+<div class="contact-icon">💼</div>
+<a href="https://linkedin.com/in/indranil-ghosh-a15993a3" target="_blank">LinkedIn Profile</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer>
+<p>© 2025 Indranil Ghosh • Fraud Detection Specialist • Built with precision &amp; purpose</p>
+<p style="margin-top: 10px; color: rgba(255,255,255,0.5);">B.Tech (Electrical Engineering) • Generative AI Certified</p>
+</footer>
+</div>
+<script>
+        // Particle Animation Background
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const particles = [];
+        const particleCount = 100;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = Math.random() * 2;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+
+            draw() {
+                ctx.fillStyle = 'rgba(0, 243, 255, 0.5)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+
+            // Connect nearby particles
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 100) {
+                        ctx.strokeStyle = `rgba(0, 243, 255, ${0.2 * (1 - distance / 100)})`;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // Typing Animation
+        const phrases = [
+            'Fraud Detection Specialist',
+            'Risk Management Expert',
+            'KYC/AML Compliance Professional',
+            'Data Analysis Enthusiast',
+            'Team Leader & Trainer'
+        ];
+
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingSpeed = 100;
+        const deletingSpeed = 50;
+        const pauseTime = 2000;
+
+        function typeText() {
+            const currentPhrase = phrases[phraseIndex];
+            const typedElement = document.getElementById('typed-content');
+
+            if (isDeleting) {
+                typedElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typedElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                setTimeout(() => { isDeleting = true; }, pauseTime);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+            }
+
+            setTimeout(typeText, isDeleting ? deletingSpeed : typingSpeed);
+        }
+
+        typeText();
+
+        // Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
